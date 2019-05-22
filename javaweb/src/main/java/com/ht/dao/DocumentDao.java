@@ -9,9 +9,13 @@ import java.util.Map;
  *2019/4/25
  */
 public interface DocumentDao {
-	public void addDocument();
-	public void deleteDocumentById();
-	public void editDocumentById();
+	public void deleteDocumentById(String id);
+	public void editDocumentById(String id,String name,String remarks);
 	public List<Map<String,Object>> selectAllDocument();
-	public void selectDocumentByDepatId();
+	public List<Map<String, Object>> selectDocumentByDepatId(String id);
+	void addDocument(String name, String depart_id, String readclass, String date, String path, String remarks);
+	public List<Map<String,Object>> selectDocumentByIsDelete(String isdelete);
+	public List<Map<String,Object>> selectDocumentByReadclass(String readClass);
+	public String selectMaxId();
+	public Map<String,Object> selectByDocumentId(String id);
 }
